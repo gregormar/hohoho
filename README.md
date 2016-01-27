@@ -141,7 +141,7 @@ db.reddit.find({author: "blazefalcon"}, {_id:0, body:1}).skip(10).limit(3)
 { "body" : "At 95 it's a stretch but i have to say Jaguar XJ220. First car I ever fell  in love with. " }
 
 ```
- 7.Wywietlenie postów z wynikiem wikszym od 4000. ( troche tego bylo, po wpisaniu "it" pojawialo sie wiecej, wiec wymienilem tylko kilka przykladowych)
+ 7.Wywietlenie postów z wynikiem wikszym od 3000. ( troche tego bylo, po wpisaniu "it" pojawialo sie wiecej, wiec wymienilem tylko kilka przykladowych)
  
  ```sh
  
