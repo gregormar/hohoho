@@ -185,4 +185,18 @@ db.reddit.find({author: "Drumlin"}).count()
 
 ```
 
+###Zadanie 2 GeoJSON
+
+Pobralem plik bazy danych lokalizacji stacji benzynowych Orlen w Polsce orlen.json. Zaimportowalem plik do bazy MongoDB w nastepujacy sposob:
+
+```sh
+
+time mongoimport -d orlen -c stacje < orlen.json
+
+real	0m3.683s
+user	0m0.016s
+sys	0m0.024s
+```
+
+
 
