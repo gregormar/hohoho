@@ -271,6 +271,49 @@ db.stacje.find({ loc: {$near: {$geometry: pkt}}},{_id:0,  city:1}).limit(5).toAr
 	}
 ]
 ```
+5. wyswietlenie stacji na lini gdansk Malbork - Chojnice
+
+```sh
+db.stacje.find({loc: {$geoIntersects: {$geometry: {type: "LineString", coordinates: [[19.01104,  54.03809] ,[17.579268,  53.707971]]}}}},{_id=0, city:1})
+```
+
+6. Polyon. Wyświetlenie stacji(miejscowosci) na danym obszarze
+
+```sh
+db.stacje.find({ loc: {$geoWithin : { $geometry: { type : "Polygon",  coordinates: [
+...  [ [
+...  18.72894287109375,
+...  53.71296473440685
+...  ],
+...  [
+...  18.72894287109375,
+...  54.10611237685854
+...  ],
+...  [
+...  19.47601318359375,
+...  54.10611237685854
+...  ],
+...  [
+...  19.47601318359375,
+...  53.71296473440685
+...  ],
+...  [
+...  18.72894287109375,
+...  53.71296473440685
+...  ]
+...  ]
+...  ] } } }},{_id:0, city:1} )
+
+{ "city" : "Malbork" }
+{ "city" : "Tczew" }
+{ "city" : "Tczew" }
+{ "city" : "Gniew" }
+{ "city" : "Sztum" }
+{ "city" : "Kwidzyn" }
+{ "city" : "Prabuty" }
+
+```
+
 
 
 
