@@ -197,6 +197,80 @@ real	0m3.683s
 user	0m0.016s
 sys	0m0.024s
 ```
+1. przykładowy pierwszy GeoJSON:
+
+```sh
+db.stacje.findOne()
+{
+	"_id" : ObjectId("56a8d6b9629ae9ff8365be9f"),
+	"loc" : {
+		"type" : "Point",
+		"coordinates" : [
+			18.662809,
+			54.403565
+		]
+	},
+	"name" : "Stacje paliw Orlen",
+	"city" : "Gdańsk"
+}
+```
+
+2. Wyswietlenie przykladowego jsona.
+
+```sh
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365bea4"),
+"loc" : {
+"type" : "Point",
+"coordinates" : [
+18.777407, 54.074322 ]
+},
+"name" : "Stacje paliw Orlen", 
+"city" : "Tczew" }
+```
+3. stacje w odleglosci 20 km od Gdanska:
+
+```sh
+db.stacje.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 18.662809, 54.403565]}, $maxDistance: 20000}}}).skip(1)
+
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365bea4"), "loc" : { "type" : "Point", "coordinates" : [ 18.777407, 54.074322 ] }, "name" : "Stacje paliw Orlen", "city" : "Tczew" }
+> db.stacje.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 18.662809, 54.403565]}, $maxDistance: 20000}}}).skip(1)
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365bea8"), "loc" : { "type" : "Point", "coordinates" : [ 18.6406, 54.35916 ] }, "name" : "Stacje paliw Orlen", "city" : "Gdańsk" }
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365beab"), "loc" : { "type" : "Point", "coordinates" : [ 18.57977, 54.39451 ] }, "name" : "Stacje paliw Orlen", "city" : "Gdańsk" }
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365bea7"), "loc" : { "type" : "Point", "coordinates" : [ 18.68251, 54.34847 ] }, "name" : "Stacje paliw Orlen", "city" : "Gdańsk" }
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365bea9"), "loc" : { "type" : "Point", "coordinates" : [ 18.63553, 54.3334 ] }, "name" : "Stacje paliw Orlen", "city" : "Gdańsk" }
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365beaa"), "loc" : { "type" : "Point", "coordinates" : [ 18.6079, 54.32619 ] }, "name" : "Stacje paliw Orlen", "city" : "Gdańsk" }
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365beb1"), "loc" : { "type" : "Point", "coordinates" : [ 18.477135, 54.380675 ] }, "name" : "Stacje paliw Orlen", "city" : "Gdańsk" }
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365beb6"), "loc" : { "type" : "Point", "coordinates" : [ 18.5335, 54.51339 ] }, "name" : "Stacje paliw Orlen", "city" : "Gdynia" }
+{ "_id" : ObjectId("56a8d6b9629ae9ff8365bea6"), "loc" : { "type" : "Point", "coordinates" : [ 18.791383, 54.291775 ] }, "name" : "Stacje paliw Orlen", "city" : "Koszwały" }
+```
+4. 5 najblizszych stacji od punktu w Malborku
+
+var pkt= {
+ "type" : "Point", 
+    "coordinates" : [   19.01104,  54.03809 ] 
+};
+
+```sh
+db.stacje.find({ loc: {$near: {$geometry: pkt}}},{_id:0,  city:1}).limit(5).toArray()
+
+[
+	{
+		"city" : "Malbork"
+	},
+	{
+		"city" : "Sztum"
+	},
+	{
+		"city" : "Tczew"
+	},
+	{
+		"city" : "Tczew"
+	},
+	{
+		"city" : "Nowy Dwór Gdański"
+	}
+]
+```
 
 
 
