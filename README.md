@@ -2,7 +2,7 @@
 
 #####Import pliku bazy danych Reddit RC_2015-01 do bazy MongoDB wersja 3.0.7
 
-* pierwszy przykładowy json z kolekcji (wraz ze wszystkimi rekordami):
+* 1.pierwszy przykładowy json z kolekcji (wraz ze wszystkimi rekordami):
 ```sh
 db.reddit.findOne()
 {
@@ -58,7 +58,7 @@ zliczenie jsonow:
 czyli wszystko ok, ilość się zgadza
 
 
-* wyświetlenie 10 subredditów na literę "s"
+* 2.wyświetlenie 10 subredditów na literę "s"
 ```sh
 db.reddit.find({subreddit: /^s/}, {_id:0, subreddit:1}).limit(10)
 
@@ -74,47 +74,31 @@ db.reddit.find({subreddit: /^s/}, {_id:0, subreddit:1}).limit(10)
 { "subreddit" : "smashbros" }
 
 ```
-* zliczenie wszystkich wpisów w subreddicie "marvelstudios":
+* 3.zliczenie wszystkich wpisów w subreddicie "soccer":
 ```sh
-db.reddit.find({subreddit: "marvelstudios"}).count()
-27924
+db.reddit.find({subreddit: "soccer"}).count()
+172547
+
 ```
-* wyświetlenie grupowania 5 najbardziej aktywnych subredditów:
+* 4.wyświetlenie grupowania 5 najmniej aktywnych subredditów:
 ```sh
+
 db.reddit.aggregate([ 
-{$group:{_id: "$subreddit", count:{$sum: 1}}},
-{$sort:{count: -1}},
-{$limit: 5}
-]);
-{
-  "result": [
-    {
-      "_id": "AskReddit",
-      "count": 4712795
-    },
-    {
-      "_id": "nfl",
-      "count": 932460
-    },
-    {
-      "_id": "funny",
-      "count": 930098
-    },
-    {
-      "_id": "leagueoflegends",
-      "count": 904297
-    },
-    {
-      "_id": "pics",
-      "count": 778942
-    }
-  ],
-  "ok": 1
-}
+... {$group:{_id: "$subreddit", count:{$sum: 1}}},
+... {$sort:{count: 1}},
+... {$limit: 5}
+... ]);
+
+{ "_id" : "lesbianromance", "count" : 1 }
+{ "_id" : "Arcestir", "count" : 1 }
+{ "_id" : "FirstLook", "count" : 1 }
+{ "_id" : "suomirap", "count" : 1 }
+{ "_id" : "HutCoinSelling", "count" : 1 }
+
 ```
 ![chart](img/chart1.png)
 
-* znajdź ostatni wpis w kolekcji:
+* 5.znajdź ostatni wpis w kolekcji:
 ```sh
 db.reddit.findOne( {$query:{}, $orderby:{$natural:-1}} )
 {
@@ -141,4 +125,64 @@ db.reddit.findOne( {$query:{}, $orderby:{$natural:-1}} )
 	"archived" : false,
 	"score" : 3
 }
+
+
 ```
+6.Wyświetlenie 3 wpisów autora "blazefalcon" (pominięcie pierwszych 10)
+
+```sh
+
+db.reddit.find({author: "blazefalcon"}, {_id:0, body:1}).skip(10).limit(3)
+
+{ "body" : "I'm a huge GT-R fanboy, but I will admit is is not the prettiest car. That being said, it's not ugly, it's an incredible car, and who cares what other people think if you like it. My friends all tell me that my Firebird looks like a catfish, but I love it and that's all I care about. They're not footing the bill, their opinion on looks shouldn't matter. " }
+
+{ "body" : "I'd look into James Edition, they get a good view count and it's like Craigslist for the wealthy. " }
+
+{ "body" : "At 95 it's a stretch but i have to say Jaguar XJ220. First car I ever fell  in love with. " }
+
+```
+ 7.Wywietlenie postów z wynikiem wikszym od 4000. ( troche tego bylo, po wpisaniu "it" pojawialo sie wiecej, wiec wymienilem tylko kilka przykladowych)
+ 
+ ```sh
+ 
+db.reddit.find({score: { $gte: 3000}}, {_id:0, author:1, body:1, subreddit:1, score:1});
+
+{ 
+"subreddit" : "explainlikeimfive", 
+"body" : "Cocaine also gets into your bloodstream quickly through your mouth and if it is of high quality you can feel it's effects rather quickly.\n\nSource: uh....", 
+"author" : "gwin69", 
+"score" : 3192 }
+
+{ "subreddit" : "videos", 
+"body" : "They must take a lot of fucking selfies for this not to be obvious every time she tries.", 
+"author" : "JakJakAttacks", 
+"score" : 3967 }
+
+{ "author" : "nothingpersonal_", 
+"score" : 4460, 
+"body" : "i'm fairly drunk atm but that doesn't look very hidden to me.", 
+"subreddit" : "WTF" }
+
+{ "author" : "isolatedpawn22", 
+"subreddit" : "tifu", 
+"body" : "Dad probably laughed his ass off later.", 
+"score" : 3066 }
+
+{ "author" : "DoubleVixen", 
+"subreddit" : "AskReddit", 
+"body" : "We have a gas station and a grocery store. No there is absolutely no reason to stay here. Please take me with you.", 
+"score" : 3139 }
+ 
+"author" : "boernelakebadboy3" }
+{ "body" : "\"I live in the upper class part of town. I'd stay away from the southern part of.. Oh what am I saying, you probably live there.\"\n\nJust enough to make you hate me and head down there to spite me.", "author" : "djilluminate", "score" : 3069, 
+"subreddit" : "AskReddit" }
+
+```
+8. zliczenie wpisow autora Drumlin
+```sh
+
+db.reddit.find({author: "Drumlin"}).count()
+
+```
+
+
