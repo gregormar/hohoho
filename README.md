@@ -54,7 +54,9 @@ system.indexes
 ```
 zliczenie jsonow:
 
-![json](img/obraz3.png)
+[logo]: http://screenshu.com/static/uploads/temporary/55/6t/a1/39zu9y.jpg
+ "json"
+![alt text][logo]
 
 czyli wszystko ok, ilość się zgadza
 
