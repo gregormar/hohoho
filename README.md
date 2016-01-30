@@ -33,7 +33,7 @@ db.reddit.findOne()
 ```
 Historia Procesora
 
-[logo]: http://fc07.deviantart.net/fs70/i/2010/206/c/d/Pixel_Mario_by_FinalGamers_2012.jpg "MARIO"
+[logo]: http://s1.fotowrzut.pl/MSWICMLLI9/1.jpg "MARIO"
 
 Logo firmy: 
 ![alt text][logo]
