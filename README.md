@@ -57,9 +57,9 @@ zliczenie jsonow:
 <A HREF="http://screenshu.com/static/uploads/temporary/55/6t/a1/39zu9y.jpg"</a>
 ```
 
-[logo]: http://screenshu.com/static/uploads/temporary/55/6t/a1/39zu9y.jpg
+[logo1]: http://screenshu.com/static/uploads/temporary/55/6t/a1/39zu9y.jpg
  "json"
-![alt text][logo]
+![alt text][logo1]
 
 czyli wszystko ok, ilość się zgadza
 
