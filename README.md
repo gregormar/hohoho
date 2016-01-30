@@ -1,8 +1,11 @@
 ###Zadanie MongoDB
 
-#####Import pliku bazy danych Reddit RC_2015-01 do bazy MongoDB wersja 3.0.7
+#####Import pliku bazy danych Reddit 
 
-* 1.pierwszy przykładowy json z kolekcji (wraz ze wszystkimi rekordami):
+[logo2]: http://screenshu.com/static/uploads/temporary/k0/kf/ko/w83ihb.jpg "czas"
+![alt text][logo2]
+
+* 1.pierwszy przykładowy json z kolekcji :
 ```sh
 db.reddit.findOne()
 {
@@ -53,9 +56,6 @@ reddit
 system.indexes
 ```
 zliczenie jsonow:
-```html
-<A HREF="http://screenshu.com/static/uploads/temporary/55/6t/a1/39zu9y.jpg"</a>
-```
 
 [logo1]: http://screenshu.com/static/uploads/temporary/55/6t/a1/39zu9y.jpg
  "json"
@@ -102,7 +102,7 @@ db.reddit.aggregate([
 { "_id" : "HutCoinSelling", "count" : 1 }
 
 ```
-![chart](img/chart1.png)
+
 
 * 5.znajdź ostatni wpis w kolekcji:
 ```sh
