@@ -213,7 +213,7 @@ postgres=# select count(*) from import.rc_2015_01;
 
 ```
 
-* znajdź pierwszy:
+1. znajdź pierwszy:
 ```sh
 postgres=# select * from import.rc_2015_01 LIMIT 1;
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -221,7 +221,7 @@ postgres=# select * from import.rc_2015_01 LIMIT 1;
  
 (1 wiersz)
 ```
-* wyświetlenie 10 subredditów na literę "s".
+2. wyświetlenie 10 subredditów na literę "s".
 ```sh
 SELECT data->>'subreddit' AS subreddit FROM import.rc_2015_01 WHERE data->>'subreddit' like ('s%') LIMIT 5;    
 ----------------
