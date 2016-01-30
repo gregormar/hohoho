@@ -53,8 +53,9 @@ reddit
 system.indexes
 ```
 zliczenie jsonow:
-
+```html
 <A HREF="http://screenshu.com/static/uploads/temporary/55/6t/a1/39zu9y.jpg"</a>
+```
 
 [logo]: http://screenshu.com/static/uploads/temporary/55/6t/a1/39zu9y.jpg
  "json"
