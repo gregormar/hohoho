@@ -244,6 +244,7 @@ smashbros
 |wersja 					|3.0.7			|9.4.5					|
 |import bazy danych	         			|prosty, w jednej lini rozpakowywanie i import		        |Najpierw musimy rozpakować plik, następnie za pomocą programu pgfutter musimy zaimportować plik do postgresa				|
 |Czas zliczenia rekordów			|<1s			|30m					|
+|Obsługa poleceń                                |momentami mozna sie pogubic z tymi nawiasami,klamrami itd. | niby bardziej instynktowna ale to raczej wynika z przyzwyczajen
 |Obciążenie procesora w trakcie importu		|mongoimport: większe (15-95%)	|pgfutter: mniejsze (10-60%)	|
 |Łatwość wyszukiwania jsonów			|czytelne osobne rekordy	|wszystko w jednej lini co utrudnia odczytywanie	|
 ###Zadanie 2 GeoJSON
