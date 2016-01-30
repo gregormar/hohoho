@@ -247,6 +247,9 @@ smashbros
 |Obsługa poleceń                                |momentami mozna sie pogubic z tymi nawiasami,klamrami itd. | niby bardziej instynktowna ale to raczej wynika z przyzwyczajen
 |Obciążenie procesora w trakcie importu		|mongoimport: większe (15-95%)	|pgfutter: mniejsze (10-60%)	|
 |Łatwość wyszukiwania jsonów			|czytelne osobne rekordy	|wszystko w jednej lini co utrudnia odczytywanie	|
+
+Ogólnie MongoDB wydaje sie sympatyczniejsze glownie ze wzgledu na czytelnosc przedstawiania danych
+
 ###Zadanie 2 GeoJSON
 
 Pobralem plik bazy danych lokalizacji stacji benzynowych Orlen w Polsce orlen.json. Zaimportowalem plik do bazy MongoDB w nastepujacy sposob:
