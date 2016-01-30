@@ -33,9 +33,7 @@ db.reddit.findOne()
 ```
 Historia Procesora
 
-[logo]: http://s1.fotowrzut.pl/MSWICMLLI9/1.jpg "MARIO"
-
-Logo firmy: 
+[logo]: http://s1.fotowrzut.pl/MSWICMLLI9/1.jpg "procek"
 ![alt text][logo]
 
 Procesory były obciążone równomiernie od 10 do 86 procent. W trakcie importu oba rdzenie działały wlaściwie identycznie, w tych samych momentach nasilając swoją aktywność i redukując ja prawie do 0.
