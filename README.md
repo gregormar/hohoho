@@ -202,7 +202,7 @@ Historia Procesora:
 [logo3]: http://screenshu.com/static/uploads/temporary/qh/4o/a9/w63q3b.jpg "czas"
 ![alt text][logo3]
 
-Bez zmian jesli chodzi o obciazenie procesora w stosunku do importowania bazy danych do mongoDB
+Troche mniejsze obciazenie procesora w stosunku do importowania bazy danych do mongoDB
 
 Zliczylem jsony
 ```sh
@@ -237,16 +237,15 @@ soccer
 smashbros
 ```
 
-##### Porównanie działania MongoDB i PostgreSQL:
+#####  MongoDB a PostgreSQL:
 
 |Polecenie					| MongoDB 		| PostgreSQL 				|
 |-----------------------------------------------|-----------------------|---------------------------------------|
 |wersja 					|3.0.7			|9.4.5					|
-|import 	         			|prosty import, w jednej lini rozpa		        |1h32m22s				|
-|Czas zliczenia rekordów			|<1s			|22m30s					|
-|Import bazy danych				|jedna komenda		|przy użyciu programu pgfutter		|
-|Obciążenie procesora w trakcie importu		|mongoimport: większe (25-95%)	|pgfutter: mniejsze (5-60%)	|
-|Łatwość wyszukiwania jsonów			|+ (osobne rekordy)	|- (wszystkie rekordy w jednej linijce)	|
+|import bazy danych	         			|prosty, w jednej lini rozpakowywanie i import		        |Najpierw musimy rozpakować plik, następnie za pomocą programu pgfutter musimy zaimportować plik do postgresa				|
+|Czas zliczenia rekordów			|<1s			|30m					|
+|Obciążenie procesora w trakcie importu		|mongoimport: większe (15-95%)	|pgfutter: mniejsze (10-60%)	|
+|Łatwość wyszukiwania jsonów			|czytelne osobne rekordy	|wszystko w jednej lini co utrudnia odczytywanie	|
 ###Zadanie 2 GeoJSON
 
 Pobralem plik bazy danych lokalizacji stacji benzynowych Orlen w Polsce orlen.json. Zaimportowalem plik do bazy MongoDB w nastepujacy sposob:
