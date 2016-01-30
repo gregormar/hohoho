@@ -191,6 +191,62 @@ db.reddit.find({author: "Drumlin"}).count()
 
 ```
 
+### Postgres
+
+#####Import pliku bazy danych Reddit 
+
+Do zaimportowania rozpakowanego pliku RC_2015-01 użyłam programu pgfutter pobranego z  [github.com/lukasmartinelli](https://github.com/lukasmartinelli/pgfutter).
+
+Historia Procesora:
+
+[logo3]: http://screenshu.com/static/uploads/temporary/qh/4o/a9/w63q3b.jpg "czas"
+![alt text][logo3]
+
+Bez zmian jesli chodzi o obciazenie procesora w stosunku do importowania bazy danych do mongoDB
+
+Zliczylem jsony
+```sh
+postgres=# select count(*) from import.rc_2015_01;
+ count
+ ----------
+ 53851542
+
+```
+
+* znajdź pierwszy:
+```sh
+postgres=# select * from import.rc_2015_01 LIMIT 1;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"score_hidden":false,"name":"t1_cnas8zv","link_id":"t3_2qyr1a","body":"Most of us have some family members like this. *Most* of my family is like this. ","downs":0,"created_utc":"1420070400","score":14,"author":"YoungModern","distinguished":null,"id":"cnas8zv","archived":false,"parent_id":"t3_2qyr1a","subreddit":"exmormon","author_flair_css_class":null,"author_flair_text":null,"gilded":0,"retrieved_on":1425124282,"ups":14,"controversiality":0,"subreddit_id":"t5_2r0gj","edited":false}+
+ 
+(1 wiersz)
+```
+* wyświetlenie 10 subredditów na literę "s".
+```sh
+SELECT data->>'subreddit' AS subreddit FROM import.rc_2015_01 WHERE data->>'subreddit' like ('s%') LIMIT 5;    
+----------------
+summonerschool
+sausagetalk
+swtor
+steroids
+smashbros
+soccer
+sports
+serialpodcast
+soccer
+smashbros
+```
+
+##### Porównanie działania MongoDB i PostgreSQL:
+
+|Polecenie					| MongoDB 		| PostgreSQL 				|
+|-----------------------------------------------|-----------------------|---------------------------------------|
+|wersja 					|3.0.7			|9.4.5					|
+|import 	         			|prosty import, w jednej lini rozpa		        |1h32m22s				|
+|Czas zliczenia rekordów			|<1s			|22m30s					|
+|Import bazy danych				|jedna komenda		|przy użyciu programu pgfutter		|
+|Obciążenie procesora w trakcie importu		|mongoimport: większe (25-95%)	|pgfutter: mniejsze (5-60%)	|
+|Łatwość wyszukiwania jsonów			|+ (osobne rekordy)	|- (wszystkie rekordy w jednej linijce)	|
 ###Zadanie 2 GeoJSON
 
 Pobralem plik bazy danych lokalizacji stacji benzynowych Orlen w Polsce orlen.json. Zaimportowalem plik do bazy MongoDB w nastepujacy sposob:
