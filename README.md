@@ -33,7 +33,7 @@ db.reddit.findOne()
 ```
 Historia Procesora
 
-WSTAW OBRAZEK
+<a href="http://fotowrzut.pl/MSWICMLLI9"</a>
 
 Procesory były obciążone równomiernie od 10 do 86 procent. W trakcie importu oba rdzenie działały wlaściwie identycznie, w tych samych momentach nasilając swoją aktywność i redukując ja prawie do 0.
 
