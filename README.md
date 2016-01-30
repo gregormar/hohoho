@@ -33,7 +33,10 @@ db.reddit.findOne()
 ```
 Historia Procesora
 
-[logo]: http://fc07.deviantart.net/fs70/i/2010/206/c/d/Pixel_Mario_by_FinalGamers_2012.jpg [logo]
+[logo]: http://fc07.deviantart.net/fs70/i/2010/206/c/d/Pixel_Mario_by_FinalGamers_2012.jpg "MARIO"
+
+Logo firmy: 
+![alt text][logo]
 
 Procesory były obciążone równomiernie od 10 do 86 procent. W trakcie importu oba rdzenie działały wlaściwie identycznie, w tych samych momentach nasilając swoją aktywność i redukując ja prawie do 0.
 
