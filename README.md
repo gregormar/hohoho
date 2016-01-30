@@ -309,6 +309,7 @@ db.stacje.find({loc: {$near: {$geometry: {type: "Point", coordinates: [ 18.66280
 { "_id" : ObjectId("56a8d6b9629ae9ff8365bea6"), "loc" : { "type" : "Point", "coordinates" : [ 18.791383, 54.291775 ] }, "name" : "Stacje paliw Orlen", "city" : "Koszwały" }
 ```
 http://bl.ocks.org/anonymous/raw/9d6aaa6d26b89dc31353/
+
 4. 5 najblizszych stacji od punktu w Malborku
 
 var pkt= {
