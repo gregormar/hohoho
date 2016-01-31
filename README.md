@@ -1,4 +1,4 @@
-###Zadanie MongoDB
+###MongoDB
 
 #####Import pliku bazy danych Reddit 
 
