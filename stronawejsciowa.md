@@ -10,7 +10,7 @@ Informacje o komputerze na którym były wykonywane obliczenia:
 
 | Rodzaj komponentu     | Komponent                       |
 |-----------------------|---------------------------------|
-| System operacyjny     | Linux Ubuntu 12.04 (64-bitowy)  |
+| System operacyjny     | Linux Ubuntu 14.04 (32-bitowy)  |
 | Procesor              | Celeron(R) Dual-Core CPU T3300 2.00 GHz    |
 | Ilość rdzeni          | 2                               |
 | Pamięć                | 2,00 GB                          |
