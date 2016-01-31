@@ -41,7 +41,6 @@ Historia Procesora
 
 Procesory były obciążone równomiernie od 10 do 86 procent. W trakcie importu oba rdzenie działały wlaściwie identycznie, w tych samych momentach nasilając swoją aktywność i redukując ja prawie do 0.
 
-Połączyłem się z mongo, przeszłem do bazy testy i wybrałem kolekcję reddit:
 ```sh
 mongo
 MongoDB shell version: 3.0.7
@@ -245,14 +244,14 @@ smashbros
 |import bazy danych	         			|prosty, w jednej lini rozpakowywanie i import		        |Najpierw musimy rozpakować plik, następnie za pomocą programu pgfutter musimy zaimportować plik do postgresa				|
 |Czas zliczenia rekordów			|<1s			|30m					|
 |Obsługa poleceń                                |momentami mozna sie pogubic z tymi nawiasami,klamrami itd. | niby bardziej instynktowna ale to raczej wynika z przyzwyczajen
-|Obciążenie procesora w trakcie importu		|mongoimport: większe (15-95%)	|pgfutter: mniejsze (10-60%)	|
+|Obciążenie procesora w trakcie importu		|mongoimport: większe (10-86%)	|pgfutter: mniejsze (10-60%)	|
 |Łatwość wyszukiwania jsonów			|czytelne osobne rekordy	|wszystko w jednej lini co utrudnia odczytywanie	|
 
 Ogólnie MongoDB wydaje sie sympatyczniejsze glownie ze wzgledu na czytelnosc przedstawiania danych
 
 ###Zadanie 2 GeoJSON
 
-Pobralem plik bazy danych lokalizacji stacji benzynowych Orlen w Polsce orlen.json. Zaimportowalem plik do bazy MongoDB w nastepujacy sposob:
+Na bazie pliku bazy danych stacji orlen w Polsce, zaimportowalem go ponizsza komenda
 
 ```sh
 
